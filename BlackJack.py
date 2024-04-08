@@ -48,8 +48,8 @@ def Player_Card_Value_Check(sum, cards, pos):
                 for card in cards:
                     print(card, end="")
                 while True:
-                    one_or_ten = input("\n\nTurn Ace to 1 or 10: ")
-                    if one_or_ten == "1" or one_or_ten == "10":
+                    one_or_ten = input("\n\nTurn Ace to 1 or 11: ")
+                    if one_or_ten == "1" or one_or_ten == "11":
                         card[1] = one_or_ten
                         sum += int(one_or_ten)
                         break
@@ -62,8 +62,8 @@ def Player_Card_Value_Check(sum, cards, pos):
         elif cards[pos][pos] == "ace":
             # Prompt the player to choose the value of the Ace
             while True:
-                one_or_ten = input("\n\nTurn Ace to 1 or 10: ")
-                if one_or_ten == "1" or one_or_ten == "10":
+                one_or_ten = input("\n\nTurn Ace to 1 or 11: ")
+                if one_or_ten == "1" or one_or_ten == "11":
                     cards[pos][pos] = one_or_ten
                     sum += int(one_or_ten)
                     break
@@ -92,10 +92,10 @@ def PC_Card_Value_Check(sum, cards, pos, p_sum):
                         time.sleep(1)
                         print(card, end="")
                 else:
-                    card[pos] = 10
-                    sum += 10
+                    card[pos] = 11
+                    sum += 11
                     time.sleep(1)
-                    print("\nAce has been made into 10\n")
+                    print("\nAce has been made into 11\n")
                     for card in cards:
                         time.sleep(1)
                         print(card, end="")
@@ -223,7 +223,7 @@ def intro():
     """
     Function to display the introduction of the game.
     """
-    print('''
+    introtext = '''
 Welcome to the Blackjack Game!
 
 In this game, you will play against the computer to see who can get closer to 21 without going over.
@@ -231,7 +231,10 @@ You will be dealt two cards initially, and you can choose to 'draw' additional c
 Be careful not to exceed 21, or you'll bust and lose the game!
 If you're satisfied with your hand, choose to 'stay' and let the computer take its turn.
 Let's see who can come out on top and win this round of Blackjack!
-''')
+'''
+    for char in introtext:
+        time.sleep(0.01)
+        print(char,end="")
     return 
 
 def main():
